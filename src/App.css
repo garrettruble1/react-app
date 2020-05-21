@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainGrid {
+    display: grid;
+    margin: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contentFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.mainCol-1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: 98vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+.mainCol-2 {
+    grid-column-start: 3;
+    grid-column-end: 11;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+    width: 80%;
+    padding: 3em 1.2em;
+}
+
+.navList {
+    margin: 0;
+    padding: 0;
+}
+
+.navItem {
+    list-style-type: none;
+    padding: 1em;
+    border-top: 1px solid black;
+}
+
+.navLink {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+    align-content: center;
+    justify-content: center;
+}
+
+.pageHeader {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 2em;
+    padding: 0.5em;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    border: 1px solid black;
+}
+
+.listHeader {
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.listItem {
+    list-style-type: none;
+    border-top: 1px solid black;
+}
+
+.icon {
+    padding-right: 1em;
+}
+
+.listItemFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listItemText {
+    padding: 1em;
+    display: block;
+    font-size: 100%;
+    font-family: inherit;
+    background: none;
+    border: none;
 }
