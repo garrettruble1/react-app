@@ -36,7 +36,7 @@ body {
 
 .logo {
     width: 80%;
-    padding: 3em 1.2em;
+    padding: 2em 1em;
 }
 
 .navList {
@@ -46,17 +46,42 @@ body {
 
 .navItem {
     list-style-type: none;
-    padding: 1em;
+    border-top: 1px solid black;
+}
+
+.userNavItem {
+    list-style-type: none;
     border-top: 1px solid black;
 }
 
 .navLink {
     display: block;
     text-decoration: none;
+    padding: 1em;
     color: black;
     font-size: x-large;
     align-content: center;
     justify-content: center;
+}
+
+.navLink:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.userNavLink {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    padding: 1em;
+    color: black;
+    font-size: x-large;
+}
+
+.userNavLink:hover {
+    cursor: pointer;
+    background-color: lightgray;
 }
 
 .pageHeader {
@@ -64,7 +89,7 @@ body {
     justify-content: center;
     font-weight: bold;
     margin: 0;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     padding: 0.5em;
 }
 
@@ -74,7 +99,8 @@ body {
     width: 20em;
     grid-column-start: 5;
     grid-column-end: 8;
-    border: 1px solid black;
+    box-shadow: 0px 5px 5px gray;
+    border-radius: 5px;
 }
 
 .listHeader {
@@ -87,7 +113,11 @@ body {
 
 .listItem {
     list-style-type: none;
-    border-top: 1px solid black;
+    border-top: 1px solid grey;
+}
+
+.listItem:hover {
+    background-color: lightgray;
 }
 
 .icon {
@@ -101,10 +131,37 @@ body {
 }
 
 .listItemText {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1em;
+    font-size: 100%;
+    font-family: inherit;
+    background: none;
+    border: none;
+}
+
+.listItemText:hover {
+    cursor: pointer;
+}
+
+.listItemMore {
     padding: 1em;
     display: block;
     font-size: 100%;
     font-family: inherit;
     background: none;
     border: none;
+}
+
+.listItemMore:hover {
+    cursor: pointer;
+}
+
+.newListButton {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
