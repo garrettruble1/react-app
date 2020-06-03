@@ -3,7 +3,7 @@ import React from 'react';
 function NavBar () {
     return (
         <nav>
-          <a href="#" className="navLink"><img src="./ToDoMockLogo.svg" alt="logo" class="logo" /></a>
+          <a href="#" className="navLink"><img src="./ToDoMockLogo.svg" alt="logo" className="logo" /></a>
           <ul className="navList">
           <li className="navItem"><a href="#" className="navLink"><i className="fas fa-plus-circle"></i> Add New List...</a></li>
             <li className="navItem"><a href="#" className="navLink">Groceries</a></li>
