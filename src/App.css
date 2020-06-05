@@ -118,7 +118,7 @@ body {
 }
 
 .listItem:hover {
-    background-color: lightgray;
+    background-color: rgb(230, 230, 230);
 }
 
 .icon {
@@ -138,6 +138,11 @@ body {
     justify-content: space-between;
 }
 
+.listItemColumn {
+    display: flex;
+    flex-direction: column;
+}
+
 .listItemInput {
     display: flex;
     justify-content: flex-start;
@@ -146,6 +151,32 @@ body {
     font-family: inherit;
     background: none;
     border: none;
+}
+
+.checkmark {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.customCheckLabel {
+    margin-right: 1em;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+input:checked ~ .customCheckmark {
+    position: relative;
+    top: -28px;
+    display: inline-block;
+    background: url('./checked.png') no-repeat center;
+    background-size: 32px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
 }
 
 .listItemText {
@@ -157,6 +188,7 @@ body {
     font-family: inherit;
     background: none;
     border: none;
+    outline: none;
 }
 
 .listItemText:hover {
@@ -170,6 +202,7 @@ body {
     font-family: inherit;
     background: none;
     border: none;
+    outline: none;
 }
 
 .listItemMore:hover {
@@ -182,4 +215,61 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.editItemContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-shadow: inset 0px 5px 5px lightgray;
+}
+
+.menuOpen {
+    display: inline-block;
+}
+
+.menuHidden {
+    display: none;
+}
+
+.editItemHeader {
+    margin-bottom: 0;
+    color: grey;
+}
+
+.editItemInput {
+    margin: 1em auto;
+    width: 70%;
+    font-size: 15px;
+    padding: 15px;
+    border: solid 1px grey;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.editButtons {
+    margin: 1em;
+    padding: 1em;
+    width: 8em;
+    font-size: 100%;
+    font-family: inherit;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.editButtons:hover {
+    cursor: pointer;
+}
+
+.editButtonGreen {
+    background-color: rgb(0, 172, 23);
+}
+
+.editButtonRed {
+    background-color: rgb(212, 13, 13);
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import shortid from 'shortid';
 import ToDo from './ToDo.js';
 import NavBar from './NavBar.js';
 import AccountLink from './AccLink.js';
@@ -10,51 +11,58 @@ class App extends React.Component {
     this.state = {
       toDoList: [
         {
-          id: 1,
+          id: shortid.generate(),
           title: "Milk",
           description: "1 gallon of 2% milk",
-          completed: false
+          completed: false,
+          isOpen: false
         },
         {
-          id: 2,
+          id: shortid.generate(),
           title: "Eggs",
           description: "One dozen eggs",
-          completed: false
+          completed: false,
+          isOpen: false
         },
         {
-          id: 3,
+          id: shortid.generate(),
           title: "Butter",
           description: "One box of salted buttercream butter",
-          completed: false
+          completed: false,
+          isOpen: false
         },
         {
-          id: 4,
+          id: shortid.generate(),
           title: "Coffee",
           description: "One pound of ground Maxwell House coffee",
-          completed: false
+          completed: false,
+          isOpen: false
         },
         {
-          id: 5,
+          id: shortid.generate(),
           title: "Salt",
           description: "One cannister of Morton's Iodized salt",
-          completed: false
+          completed: false,
+          isOpen: false
         }
       ],
       users: [
         {
-          id: 0,
+          id: shortid.generate(),
           firstName: "Sample",
           lastName: "User",
           avatar: "./ToDoProfile.jpg"
         },
         {
-          id: 1,
+          id: shortid.generate(),
           firstName: "Garrett",
           lastName: "Ruble",
           avatar: "./ToDoProfile.jpg"
         }
       ],
       newItem: "",
+      modifiedItem: "",
+      description: ""
     }
   }
 
@@ -64,10 +72,11 @@ class App extends React.Component {
 
   handleAddItemClick = () => {
     let newToDo = {
-      id: "",
+      id: shortid.generate(),
       title: this.state.newItem,
       description: "",
       completed: false,
+      isOpen: false
     }
 
     this.setState((state) => {
@@ -83,10 +92,11 @@ class App extends React.Component {
   handleAddItemKeyPress = (e) => {
     if (e.keyCode === 13) {
       let newToDo = {
-        id: "",
+        id: shortid.generate(),
         title: this.state.newItem,
         description: "",
         completed: false,
+        isOpen: false
       }
 
       this.setState((state) => {
@@ -99,6 +109,77 @@ class App extends React.Component {
       });
     };
   }
+
+  handleCheckInput = (id) => {
+    this.setState((state) => {
+      const newToDo = state.toDoList.map((item) => {
+        if (item.id === id) {
+          return Object.assign({}, item, { completed: true });
+        } else {
+          return item;
+        }
+      });
+
+      return {
+        toDoList: newToDo
+      };
+    });
+  }
+
+  handleToggleEditMenu = (id) => {
+    this.setState((state) => {
+        const newToDo = state.toDoList.map(item => {
+          if (item.id === id) {
+            return Object.assign({}, item, { isOpen: item.isOpen ? false : true });
+          } else {
+            return item;
+          }
+        });
+        return {
+          toDoList: newToDo,
+          modifiedItem: ""
+        };
+      });
+    }
+
+    handleModifyItemInput = (event) => {
+      this.setState({ modifiedItem: event.target.value });
+    }
+
+    handleModifyDescription = (event) => {
+      this.setState({ description: event.target.value });
+    }
+
+    handleSaveChangeClick = (id) => {
+      this.setState((state) => {
+        const newToDo = state.toDoList.map(item => {
+          if (item.id === id && this.state.modifiedItem !== "") {
+            return Object.assign({}, item, { title: this.state.modifiedItem });
+          } else {
+            return item;
+          }
+        });
+        return {
+          toDoList: newToDo,
+          modifiedItem: ""
+        }
+      });
+    }
+
+    handleDeleteItem = (id) => {
+      this.setState((state) => {
+        let newToDo = state.toDoList.filter((item) => {
+          if (item.id === id) {
+            return item.id !== id;
+          } else {
+            return item;
+          }
+        });
+        return {
+          toDoList: newToDo
+        }
+      });
+    }
 
   render() {
     return (
@@ -117,7 +198,21 @@ class App extends React.Component {
 
             <h1 className="pageHeader">To Do</h1>
 
-            <ToDo list={this.state.toDoList} newItem={this.state.newItem} inputHandler={this.handleAddItemInput} clickHandler={this.handleAddItemClick} enterHandler={this.handleAddItemKeyPress} />
+            <ToDo list={this.state.toDoList}
+            newItem={this.state.newItem}
+            modifiedItem={this.state.modifiedItem}
+            inputHandler={this.handleAddItemInput}
+            clickHandler={this.handleAddItemClick}
+            enterHandler={this.handleAddItemKeyPress}
+            onCheck={this.handleCheckInput}
+            onEditClick={this.handleToggleEditMenu}
+            onModifyItem={this.handleModifyItemInput}
+            onModifyDesc={this.handleModifyDescription}
+            onDelete={this.handleDeleteItem}
+            modifyName={this.state.modifiedItem}
+            modifyDesc={this.state.description}
+            onSaveChange={this.handleSaveChangeClick}
+            onDelete={this.handleDeleteItem} />
 
           </div>
 
