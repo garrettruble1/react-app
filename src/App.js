@@ -53,8 +53,51 @@ class App extends React.Component {
           lastName: "Ruble",
           avatar: "./ToDoProfile.jpg"
         }
-      ]
+      ],
+      newItem: "",
     }
+  }
+
+  handleAddItemInput = (event) => {
+    this.setState({ newItem: event.target.value });
+  }
+
+  handleAddItemClick = () => {
+    let newToDo = {
+      id: "",
+      title: this.state.newItem,
+      description: "",
+      completed: false,
+    }
+
+    this.setState((state) => {
+      if (this.state.newItem !== "") {
+        return {
+         toDoList: [ newToDo, ...state.toDoList ],
+         newItem: "",
+        };
+      }
+    })
+  }
+
+  handleAddItemKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      let newToDo = {
+        id: "",
+        title: this.state.newItem,
+        description: "",
+        completed: false,
+      }
+
+      this.setState((state) => {
+        if (this.state.newItem !== "") {
+          return {
+           toDoList: [ newToDo, ...state.toDoList ],
+           newItem: "",
+          };
+        }
+      });
+    };
   }
 
   render() {
@@ -74,7 +117,7 @@ class App extends React.Component {
 
             <h1 className="pageHeader">To Do</h1>
 
-            <ToDo list={this.state.toDoList} />
+            <ToDo list={this.state.toDoList} newItem={this.state.newItem} inputHandler={this.handleAddItemInput} clickHandler={this.handleAddItemClick} enterHandler={this.handleAddItemKeyPress} />
 
           </div>
 

@@ -94,6 +94,7 @@ body {
 }
 
 .listContainer {
+    margin-bottom: 1em;
     display: flex;
     flex-direction: column;
     width: 20em;
@@ -121,13 +122,30 @@ body {
 }
 
 .icon {
-    padding-right: 1em;
+    padding-right: 0.5em;
+}
+
+.addToList {
+    width: 60%;
+    font-size: 15px;
+    padding: 15px;
+    border: none;
 }
 
 .listItemFlex {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.listItemInput {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 100%;
+    font-family: inherit;
+    background: none;
+    border: none;
 }
 
 .listItemText {
