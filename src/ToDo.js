@@ -17,7 +17,7 @@ function ToDo (props) {
                 <div className="listItemFlex">
                 <button className="listItemText">
                   <label className="customCheckLabel">
-                <input type="checkbox" defaultChecked={props.list.completed} onChange={() => props.onCheck(item.id)} className="checkmark" />
+                <input type="checkbox" defaultChecked={props.checked} onChange={() => props.onCheck(item.id)} className="checkmark" />
                 <span className="customCheckmark"></span>
                 </label>
                   {item.title}
