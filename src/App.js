@@ -4,6 +4,7 @@ import shortid from 'shortid';
 import ToDo from './ToDo.js';
 import NavBar from './NavBar.js';
 import AccountLink from './AccLink.js';
+const TODO_LIST_KEY = 'myapp_todolist';
 
 class App extends React.Component {
   constructor(props) {
@@ -63,6 +64,21 @@ class App extends React.Component {
       newItem: "",
       modifiedItem: "",
       description: ""
+    }
+  }
+
+  componentDidMount() {
+    let listString = localStorage.getItem(TODO_LIST_KEY);
+    if (listString) {
+      this.setState({
+        toDoList: JSON.parse(listString)
+      });
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.toDoList !== prevState.toDoList) {
+      localStorage.setItem(TODO_LIST_KEY, JSON.stringify(this.state.toDoList));
     }
   }
 
@@ -199,6 +215,7 @@ class App extends React.Component {
             <h1 className="pageHeader">To Do</h1>
 
             <ToDo list={this.state.toDoList}
+            checked={this.state.toDoList.completed}
             newItem={this.state.newItem}
             modifiedItem={this.state.modifiedItem}
             inputHandler={this.handleAddItemInput}
