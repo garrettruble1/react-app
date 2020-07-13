@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function NavBar () {
+function NavBar() {
     return (
         <nav>
-          <a href="#" className="navLink"><img src="./ToDoMockLogo.svg" alt="logo" className="logo" /></a>
+          <Link to="/" className="navLink"><img src="./ToDoMockLogo.svg" alt="logo" className="logo" /></Link>
           <ul className="navList">
-          <li className="navItem"><a href="#" className="navLink"><i className="fas fa-plus-circle"></i> Add New List...</a></li>
-            <li className="navItem"><a href="#" className="navLink">Groceries</a></li>
-            <li className="navItem"><a href="#" className="navLink">Car Maintinence</a></li>
-            <li className="navItem"><a href="#" className="navLink">Homework</a></li>
+          <li className="navItem"><Link to="/" className="navLink"><i className="fas fa-plus-circle"></i> Add New List...</Link></li>
+            <li className="navItem"><Link to="/groceries" className="navLink">Groceries</Link></li>
+            <li className="navItem"><Link to="/" className="navLink">Car Maintinence</Link></li>
+            <li className="navItem"><Link to="/" className="navLink">Homework</Link></li>
           </ul>
         </nav>
     )

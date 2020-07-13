@@ -28,16 +28,11 @@ class Clock extends Component {
 
     render() {
         return (
-            <div className="dashboardBackground mainGrid">
-                <div className="dashboardContent dashboardLogo">
-                    <img src="./ToDoAppMockLogoWhite.png" alt="logo" />
+            
                 <div className="welcomeContainer">
                     <h2 className="dashboardText">Hey there, Garrett!</h2>
                     <h3 className="dashboardText">It is {this.state.date.toLocaleTimeString()}</h3>
                 </div>
-                </div>
-                
-            </div>
         )
     }
 }

@@ -8,7 +8,8 @@ body {
 .dashboardBackground {
     height: 100vh;
     background-image: url('./ToDoDashboardBg.png');
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .mainGrid {
@@ -144,7 +145,7 @@ body {
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
-    width: 20em;
+    width: 24em;
     grid-column-start: 5;
     grid-column-end: 8;
     box-shadow: 0px 5px 5px gray;
@@ -157,6 +158,7 @@ body {
     text-align: center;
     background-color: black;
     color: white;
+    border-radius: 10px 10px 0 0;
 }
 
 .listItem {
@@ -215,7 +217,7 @@ body {
     cursor: pointer;
 }
 
-input:checked ~ .customCheckmark {
+.customCheckmark {
     position: relative;
     top: -28px;
     display: inline-block;
@@ -281,14 +283,77 @@ input:checked ~ .customCheckmark {
     display: none;
 }
 
+.infoButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    background-color: rgb(190, 190, 190);
+    width: 80%;
+    height: 2em;
+    border-radius: 5px;
+}
+
+.infoMenuButton {
+    width: 50%;
+    font-size: 100%;
+    font-family: inherit;
+    font-weight: bold;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonActive {
+    background-color: white;
+    color: grey;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+.buttonDisabled {
+    background-color: rgb(190, 190, 190);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.infoContentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.itemInfo {
+    margin: 2em;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detailInfo {
+    font-family: inherit;
+    font-size: 120%;
+    padding: 1em;
+}
+
 .editItemHeader {
     margin-bottom: 0;
     color: grey;
 }
 
+.formLabel {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .editItemInput {
     margin: 1em auto;
     width: 70%;
+    font-family: inherit;
     font-size: 15px;
     padding: 15px;
     border: solid 1px grey;
