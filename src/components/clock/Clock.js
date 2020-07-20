@@ -27,11 +27,29 @@ class Clock extends Component {
     }
 
     render() {
+
+    const welcomeContainer = {
+        margin: '4em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        border: '2px solid lightgray',
+        borderRadius: '5px',
+        width: '20em',
+        height: '8em',
+        gridColumnStart: '5',
+        gridColumnEnd: '7'
+    }
+
+    const dashboardText = {
+        color: 'white',
+        fontFamily: '"Roboto", sans-serif'
+    }
         return (
             
-                <div className="welcomeContainer">
-                    <h2 className="dashboardText">Hey there, Garrett!</h2>
-                    <h3 className="dashboardText">It is {this.state.date.toLocaleTimeString()}</h3>
+                <div style={welcomeContainer}>
+                    <h2 style={dashboardText}>Hey there, Garrett!</h2>
+                    <h3 style={dashboardText}>It is {this.state.date.toLocaleTimeString()}</h3>
                 </div>
         )
     }

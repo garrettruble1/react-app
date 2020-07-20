@@ -5,24 +5,10 @@ body {
     box-sizing: border-box;
 }
 
-.dashboardBackground {
-    height: 100vh;
-    background-image: url('./ToDoDashboardBg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 .mainGrid {
     display: grid;
     margin: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.dashboardGrid {
-    display: grid;
-    margin: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .contentFlex {
@@ -48,68 +34,10 @@ body {
     grid-column-end: 11;
 }
 
-.dashboardLogo {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    grid-column-start: 4;
-    grid-column-end: 8;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
 .dashboardContent {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.welcomeContainer {
-    margin: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    width: 20em;
-    height: 8em;
-    grid-column-start: 5;
-    grid-column-end: 7;
-}
-
-.dashboardText {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-}
-
-.logo {
-    width: 80%;
-    padding: 2em 1em;
-}
-
-.navList {
-    margin: 0;
-    padding: 0;
-}
-
-.navItem {
-    list-style-type: none;
-    border-top: 1px solid black;
-}
-
-.userNavItem {
-    list-style-type: none;
-    border-top: 1px solid black;
-}
-
-.navLink {
-    display: block;
-    text-decoration: none;
-    padding: 1em;
-    color: black;
-    font-size: x-large;
-    align-content: center;
-    justify-content: center;
 }
 
 .navLink:hover {
@@ -117,79 +45,13 @@ body {
     background-color: lightgray;
 }
 
-.userNavLink {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-decoration: none;
-    padding: 1em;
-    color: black;
-    font-size: x-large;
-}
-
 .userNavLink:hover {
     cursor: pointer;
     background-color: lightgray;
 }
 
-.pageHeader {
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    margin: 0;
-    margin-bottom: 3em;
-    padding: 0.5em;
-}
-
-.listContainer {
-    margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
-    width: 24em;
-    grid-column-start: 5;
-    grid-column-end: 8;
-    box-shadow: 0px 5px 5px gray;
-    border-radius: 5px;
-}
-
-.listHeader {
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-    background-color: black;
-    color: white;
-    border-radius: 10px 10px 0 0;
-}
-
-.listItem {
-    list-style-type: none;
-    border-top: 1px solid grey;
-}
-
-.listItem:hover {
-    background-color: rgb(230, 230, 230);
-}
-
 .icon {
     padding-right: 0.5em;
-}
-
-.addToList {
-    width: 60%;
-    font-size: 15px;
-    padding: 15px;
-    border: none;
-}
-
-.listItemFlex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.listItemColumn {
-    display: flex;
-    flex-direction: column;
 }
 
 .listItemInput {
@@ -207,16 +69,6 @@ body {
     cursor: pointer;
 }
 
-.customCheckLabel {
-    margin-right: 1em;
-    height: 24px;
-    width: 24px;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid black;
-    cursor: pointer;
-}
-
 .customCheckmark {
     position: relative;
     top: -28px;
@@ -226,18 +78,6 @@ body {
     height: 32px;
     width: 32px;
     cursor: pointer;
-}
-
-.listItemText {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 1em;
-    font-size: 100%;
-    font-family: inherit;
-    background: none;
-    border: none;
-    outline: none;
 }
 
 .listItemText:hover {
@@ -258,39 +98,12 @@ body {
     cursor: pointer;
 }
 
-.newListButton {
-    margin-right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.editItemContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-shadow: inset 0px 5px 5px lightgray;
-}
-
 .menuOpen {
     display: inline-block;
 }
 
 .menuHidden {
     display: none;
-}
-
-.infoButtonContainer {
-    display: flex;
-    justify-content: center;
-    margin: 1em;
-    background-color: rgb(190, 190, 190);
-    width: 80%;
-    height: 2em;
-    border-radius: 5px;
 }
 
 .infoMenuButton {
@@ -324,43 +137,6 @@ body {
     width: 100%;
 }
 
-.itemInfo {
-    margin: 2em;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.detailInfo {
-    font-family: inherit;
-    font-size: 120%;
-    padding: 1em;
-}
-
-.editItemHeader {
-    margin-bottom: 0;
-    color: grey;
-}
-
-.formLabel {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.editItemInput {
-    margin: 1em auto;
-    width: 70%;
-    font-family: inherit;
-    font-size: 15px;
-    padding: 15px;
-    border: solid 1px grey;
-    border-radius: 5px;
-    box-shadow: none;
-}
-
 .editButtons {
     margin: 1em;
     padding: 1em;
@@ -376,12 +152,4 @@ body {
 
 .editButtons:hover {
     cursor: pointer;
-}
-
-.editButtonGreen {
-    background-color: rgb(0, 172, 23);
-}
-
-.editButtonRed {
-    background-color: rgb(212, 13, 13);
 }

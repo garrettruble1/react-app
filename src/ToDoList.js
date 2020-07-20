@@ -183,24 +183,120 @@ class ToDoList extends React.Component {
     }
 
   render() {
+
+    const pageHeader = {
+      display: 'flex',
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      margin: '0',
+      marginBottom: '3em',
+      padding: '0.5em'
+    }
+
+    const listContainer = {
+      marginBottom: '1em',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '24em',
+      gridColumnStart: '5',
+      gridColumnEnd: '8',
+      boxShadow: '0px 5px 5px gray',
+      borderRadius: '5px'
+    }
+
+    const listHeader = {
+      margin: '0',
+      padding: '1em',
+      textAlign: 'center',
+      backgroundColor: 'black',
+      color: 'white',
+      borderRadius: '10px 10px 0 0'
+    }
+
+    const navList = {
+      margin: '0',
+      padding: '0'
+    }
+
+    const listItem = {
+      listStyleType: 'none',
+      borderTop: '1px solid grey'
+    }
+
+    const listItemFlex = {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    }
+
+    const addToList = {
+      width: '60%',
+      fontSize: '15px',
+      padding: '15px',
+      border: 'none'
+    }
+
+    const listItemMore = {
+      padding: '1em',
+      display: 'block',
+      fontSize: '100%',
+      fontFamily: 'inherit',
+      background: 'none',
+      border: 'none',
+      outline: 'none',
+      cursor: 'pointer'
+    }
+
+    const listItemColumn = {
+      display: 'flex',
+      flexDirection: 'column'
+    }
+
+    const listItemText = {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      width: '100%',
+      padding: '1em',
+      fontSize: '100%',
+      fontFamily: 'inherit',
+      background: 'none',
+      border: 'none',
+      outline: 'none'
+    }
+
+    const customCheckLabel = {
+      marginRight: '1em',
+      height: '24px',
+      width: '24px',
+      backgroundColor: 'transparent',
+      borderRadius: '5px',
+      border: '1px solid black',
+      cursor: 'pointer'
+    }
+
+    const checkmark = {
+      opacity: '0',
+      cursor: 'pointer'
+    }
+
     return (
       <>
 
-            <h1 className="pageHeader">To Do</h1>
+            <h1 style={pageHeader}>To Do</h1>
 
-            <div className="listContainer">
-          <ul className="navList">
-            <h2 className="listHeader">Groceries</h2>
-            <li className="listItem listItemFlex"><input type="text" className="addToList" placeholder="Add new item..." value={this.state.newItem} onChange={this.handleAddItemInput} onKeyDown={this.handleAddItemKeyPress}></input><button className="listItemMore" onClick={this.handleAddItemClick}><i className="fas fa-plus-circle icon"></i>Add</button></li>
+            <div style={listContainer}>
+          <ul style={navList}>
+            <h2 style={listHeader}>Groceries</h2>
+            <li style={listItem, listItemFlex}><input type="text" style={addToList} placeholder="Add new item..." value={this.state.newItem} onChange={this.handleAddItemInput} onKeyDown={this.handleAddItemKeyPress}></input><button style={listItemMore} onClick={this.handleAddItemClick}><i className="fas fa-plus-circle icon"></i>Add</button></li>
 
             {this.state.toDoList.map((item)=>(
-              <li className="listItem" key={item.id}>
+              <li style={listItem} key={item.id}>
 
-                <div className="listItemColumn">
-                <div className="listItemFlex">
-                <button className="listItemText">
-                  <label className="customCheckLabel">
-                <input type="checkbox" defaultChecked={item.completed} onChange={(id) => this.handleCheckInput(item.id)} className="checkmark" />
+                <div style={listItemColumn}>
+                <div style={listItemFlex}>
+                <button style={listItemText}>
+                  <label style={customCheckLabel}>
+                <input type="checkbox" defaultChecked={item.completed} onChange={(id) => this.handleCheckInput(item.id)} style={checkmark} />
                 <span className={item.completed ? "customCheckmark" : "menuHidden"}></span>
                 </label>
                   {item.title}
@@ -208,7 +304,7 @@ class ToDoList extends React.Component {
                   <button className={item.completed ? "listItemMore" : "menuHidden"} onClick={(id) => this.handleDeleteItem(item.id)}>
                   <i class="fas fa-trash"></i>
                   </button>
-                  <button className="listItemMore" onClick={() => this.handleToggleEditMenu(item.id)}>
+                  <button style={listItemMore} onClick={() => this.handleToggleEditMenu(item.id)}>
                   <i className="fas fa-chevron-down"></i>
                     </button>
                     </div>

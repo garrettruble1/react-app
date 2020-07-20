@@ -53,43 +53,116 @@ class MoreInfo extends React.Component {
     }
 
     render() {
-        return (
-            <div className="editItemContainer">
 
-                <div className="infoButtonContainer">
+        const editItemContainer = {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            boxShadow: 'inset 0px 5px 5px lightgray'
+        }
+
+        const infoButtonContainer = {
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '1em',
+            backgroundColor: 'rgb(190, 190, 190)',
+            width: '80%',
+            height: '2em',
+            borderRadius: '5px'
+        }
+
+        const editItemHeader = {
+            marginBottom: '0',
+            color: 'grey'
+        }
+
+        const itemInfo = {
+            margin: '2em',
+            width: '90%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start'
+        }
+
+        const detailInfo = {
+            fontFamily: 'inherit',
+            fontSize: '120%',
+            padding: '1em'
+        }
+
+        const infoContentContainer = {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%'
+        }
+
+        const formLabel = {
+            width: '90%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start'
+        }
+
+        const editItemInput = {
+            margin: '1em auto',
+            width: '70%',
+            fontFamily: 'inherit',
+            fontSize: '15px',
+            padding: '15px',
+            border: 'solid 1px grey',
+            borderRadius: '5px',
+            boxShadow: 'none'
+        }
+
+        const editButtonGreen = {
+            backgroundColor: 'rgb(0, 172, 23)'
+        }
+
+        const editButtonRed = {
+            backgroundColor: 'rgb(212, 13, 13)'
+        }
+
+        return (
+            <div style={editItemContainer}>
+
+                <div style={infoButtonContainer}>
                     <button className={this.state.menuToggle ? "infoMenuButton buttonActive" : "infoMenuButton buttonDisabled"} onClick={() => this.infoClick()}>Info</button>
                     <button className={this.state.menuToggle ? "infoMenuButton buttonDisabled" : "infoMenuButton buttonActive"} onClick={() => this.editClick()}>Edit</button>
                 </div>
 
                 <div className={this.state.menuToggle ? "infoContentContainer menuOpen" : "menuHidden"}>
-                    <h3 className="editItemHeader">Item Info</h3>
-                    <div className="itemInfo">
-                    <p className="detailInfo">NAME: {this.props.itemName}</p>
-                    <p className="detailInfo">DESCRIPTION: {this.props.itemDesc}</p>
-                    <p className="detailInfo">DUE DATE: {this.props.due}</p>
-                    <p className="detailInfo">COMPLETED: {JSON.stringify(this.props.checked)}</p>
+                    <h3 style={editItemHeader}>Item Info</h3>
+                    <div style={itemInfo}>
+                    <p style={detailInfo}>NAME: {this.props.itemName}</p>
+                    <p style={detailInfo}>DESCRIPTION: {this.props.itemDesc}</p>
+                    <p style={detailInfo}>DUE DATE: {this.props.due}</p>
+                    <p style={detailInfo}>COMPLETED: {JSON.stringify(this.props.checked)}</p>
                     </div>
                 </div>
 
                  <div className={this.state.menuToggle ? "menuHidden" : " infoContentContainer menuOpen"}>
-                <h3 className="editItemHeader">Edit Item</h3>
+                <h3 style={editItemHeader}>Edit Item</h3>
 
-                <form className="infoContentContainer" onSubmit={(event)=>this.handleFormSubmit(event)}>
-                    <label htmlFor="title" className="formLabel">
+                <form style={infoContentContainer} onSubmit={(event)=>this.handleFormSubmit(event)}>
+                    <label htmlFor="title" style={formLabel}>
                         Item Name:
-                        <input type="text" name="title" className="editItemInput" value={this.state.formData.title} onChange={this.handleChange} required></input>
+                        <input type="text" name="title" style={editItemInput} value={this.state.formData.title} onChange={this.handleChange} required></input>
                     </label>
-                    <label htmlFor="description" className="formLabel">
+                    <label htmlFor="description" style={formLabel}>
                         Item Description:
-                        <textarea name="description" className="editItemInput" rows="6" cols="40" className="editItemInput" value={this.state.formData.description} onChange={this.handleChange} required></textarea>
+                        <textarea name="description" style={editItemInput} rows="6" cols="40" value={this.state.formData.description} onChange={this.handleChange} required></textarea>
                     </label>
-                    <label htmlFor="dueDate" className="formLabel">
+                    <label htmlFor="dueDate" style={formLabel}>
                         Item Due Date:
-                        <input type="date" name="due" className="editItemInput" value={this.state.formData.due} onChange={this.handleChange}></input>
+                        <input type="date" name="due" style={editItemInput} value={this.state.formData.due} onChange={this.handleChange}></input>
                     </label>
                 <div>
-                    <button type="submit" className="editButtons editButtonGreen">Save</button>
-                    <button className="editButtons editButtonRed" onClick={() => this.props.onDeleteItem(this.props.id)}>Delete Item</button>
+                    <button type="submit" style={editButtonGreen} className="editButtons">Save</button>
+                    <button style={editButtonRed} className="editButtons" onClick={() => this.props.onDeleteItem(this.props.id)}>Delete Item</button>
                 </div>
                 </form>
                 </div>
